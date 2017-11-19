@@ -46,48 +46,29 @@ else:
 		GongShang = (file.readline().split('='))[1].strip()
 		ShengYu = (file.readline().split('='))[1].strip()
 		GongJiJin = (file.readline().split('='))[1].strip()
-		print("JiShuL: ",JiShuL)
-		print("JiShuH: ",JiShuH)
-		print("YangLao: ",YangLao)
-		print("YiLiao: ",YiLiao)
-		print("ShiYe: ",ShiYe)
-		print("GongShang: ",GongShang)
-		print("ShengYu: ",ShengYu)
-		print("GongJiJin: ",GongJiJin)
+	print("JiShuL: ",JiShuL)
+	print("JiShuH: ",JiShuH)
+	print("YangLao: ",YangLao)
+	print("YiLiao: ",YiLiao)
+	print("ShiYe: ",ShiYe)
+	print("GongShang: ",GongShang)
+	print("ShengYu: ",ShengYu)
+	print("GongJiJin: ",GongJiJin)
+	
+	userDict = {}
+	with open(data_file) as file:
+		userList = file.readlines()
+		lines = len(userList)
+		print("userList: " , userList)
+		print("lines: ", lines)
+		count = 0
+		for user in userList:
+			userDict[user.split(',')[0]] = user.split(',')[1].replace('\n','')
+		for key in userDict:
+			print(key,",",userDict[key])
+			
+			
 '''
-	count = 1
-	print(sys.argv)
-	
-	for i in sys.argv[1:]:
-		if i == "-c":
-			configfile_name = sys.argv[count+1]
-		elif i == "-d":
-			datafile_name = sys.argv[count+1]
-		elif i == "-o":
-			opfile_name = sys.argv[count+1]
-		else:
-			print("Parameter Error")
-			break
-	
-	judge(sys.argv[1],sys.argv[2])
-	judge(sys.argv[3],sys.argv[4])
-	judge(sys.argv[5],sys.argv[6])
-		
-
-	print("configfile: " , configfile_name)
-	print("datafile: ",datafile_name)
-	print("opfile: ",opfile_name)
-
-def judge(command,adress):
-	if command == '-c':
-		global configfile_name = address
-	elif command == '-d':
-		global datafile_name = address
-	elif command == '-o':
-		global opfile_name = address
-	else:
-		print("Parameter Error")
-
 
 def taxprint(taxincome):
 	if taxincome <= 0:
@@ -114,21 +95,21 @@ def taxprint(taxincome):
         	tax = taxincome * 0.45 - 13505
         	return tax
 
-for arg in sys.argv[1:]:
-	taxlist = arg.split(':')
-	try:
-		salary =int(taxlist[1])
-	except:
-		print("Parameter Error")
-	fund = salary * 0.08 + salary * 0.02 + salary * 0.005 + salary * 0.06
-	#print("fund: ",fund)
-	taxincome = salary - fund - 3500
-	#print("taxincome: ",taxincome)
-	if taxincome <= 0:
-		reallysalary = format(salary - fund,".2f")
-	else: 
-		tax = taxprint(taxincome)
-		#print("tax: ",tax)
-		reallysalary = format(salary - fund - tax,".2f")
-	print(taxlist[0],reallysalary,sep=':')
+	for arg in sys.argv[1:]:
+		taxlist = arg.split(':')
+		try:
+			salary =int(taxlist[1])
+		except:
+			print("Parameter Error")
+		fund = salary * 0.08 + salary * 0.02 + salary * 0.005 + salary * 0.06
+		#print("fund: ",fund)
+		taxincome = salary - fund - 3500
+		#print("taxincome: ",taxincome)
+		if taxincome <= 0:
+			reallysalary = format(salary - fund,".2f")
+		else: 
+			tax = taxprint(taxincome)
+			#print("tax: ",tax)
+			reallysalary = format(salary - fund - tax,".2f")
+		print(taxlist[0],reallysalary,sep=':')
 '''
