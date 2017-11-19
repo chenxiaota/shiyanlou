@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 import sys
-
+import os.path
 
 #try:
 #	taxincome = int(sys.argv[1]) - 3500
@@ -9,7 +9,53 @@ import sys
 
 if len(sys.argv) != 7:
 	print("Parameter Error")
-configfilename = 
+else:
+	config_file = sys.argv[2]
+	data_file = sys.argv[4]
+	op_file = sys.argv[6]
+	
+	if not os.path.exists(config_file):
+		print("config file is not exists")
+		exit()
+	if not os.path.exists(data_file):
+		print("data file is not exists")
+		exit()
+	print("config: ",config_file)
+	print("data: ",data_file)
+	print("op: ",op_file)
+'''
+	count = 1
+	print(sys.argv)
+	
+	for i in sys.argv[1:]:
+		if i == "-c":
+			configfile_name = sys.argv[count+1]
+		elif i == "-d":
+			datafile_name = sys.argv[count+1]
+		elif i == "-o":
+			opfile_name = sys.argv[count+1]
+		else:
+			print("Parameter Error")
+			break
+	
+	judge(sys.argv[1],sys.argv[2])
+	judge(sys.argv[3],sys.argv[4])
+	judge(sys.argv[5],sys.argv[6])
+		
+
+	print("configfile: " , configfile_name)
+	print("datafile: ",datafile_name)
+	print("opfile: ",opfile_name)
+
+def judge(command,adress):
+	if command == '-c':
+		global configfile_name = address
+	elif command == '-d':
+		global datafile_name = address
+	elif command == '-o':
+		global opfile_name = address
+	else:
+		print("Parameter Error")
 
 
 def taxprint(taxincome):
@@ -54,3 +100,4 @@ for arg in sys.argv[1:]:
 		#print("tax: ",tax)
 		reallysalary = format(salary - fund - tax,".2f")
 	print(taxlist[0],reallysalary,sep=':')
+'''
