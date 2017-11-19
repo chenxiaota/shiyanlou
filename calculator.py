@@ -7,12 +7,25 @@ import os.path
 #except:
 #	print("Parameter Error")
 
+#judge
 if len(sys.argv) != 7:
 	print("Parameter Error")
 else:
-	config_file = sys.argv[2]
-	data_file = sys.argv[4]
-	op_file = sys.argv[6]
+	if sys.argv[1] == '-c':
+		config_file = sys.argv[2]
+	else:
+		print("-c Error")
+		exit()
+	if sys.argv[3] == '-d':
+		data_file = sys.argv[4]
+	else:
+		print("-d Error")
+		exit()
+	if sys.argv[5] == '-o':
+		op_file = sys.argv[6]
+	else:
+		print("-o Error")
+		exit()
 	
 	if not os.path.exists(config_file):
 		print("config file is not exists")
@@ -23,6 +36,24 @@ else:
 	print("config: ",config_file)
 	print("data: ",data_file)
 	print("op: ",op_file)
+
+	with open(config_file) as file:
+		JiShuL = (file.readline().split('='))[1].strip()
+		JiShuH = (file.readline().split('='))[1].strip()
+		YangLao = (file.readline().split('='))[1].strip()
+		YiLiao = (file.readline().split('='))[1].strip()
+		ShiYe = (file.readline().split('='))[1].strip()
+		GongShang = (file.readline().split('='))[1].strip()
+		ShengYu = (file.readline().split('='))[1].strip()
+		GongJiJin = (file.readline().split('='))[1].strip()
+		print("JiShuL: ",JiShuL)
+		print("JiShuH: ",JiShuH)
+		print("YangLao: ",YangLao)
+		print("YiLiao: ",YiLiao)
+		print("ShiYe: ",ShiYe)
+		print("GongShang: ",GongShang)
+		print("ShengYu: ",ShengYu)
+		print("GongJiJin: ",GongJiJin)
 '''
 	count = 1
 	print(sys.argv)
