@@ -6,6 +6,12 @@ import sys
 #	taxincome = int(sys.argv[1]) - 3500
 #except:
 #	print("Parameter Error")
+
+if len(sys.argv) != 7:
+	print("Parameter Error")
+configfilename = 
+
+
 def taxprint(taxincome):
 	if taxincome <= 0:
 		return format(0,".2f")
