@@ -68,10 +68,6 @@ else:
 		for key in userDict:
 			print(key,",",userDict[key])
 
-	class UserData(object):
-		def __init__(self,userdatafile)
-				
-
 	def taxprint(taxincome):
 		if taxincome <= 0:
 			return format(0,".2f")
@@ -96,9 +92,6 @@ else:
 		elif taxincome > 80000:
 			tax = taxincome * 0.45 - 13500
 			return tax
-	
-	def dumptofile(self,outputfile):
-		with open
 
 	for arg in userList:
 		taxlist = arg.split(',')[1].replace('\n','')
@@ -117,36 +110,20 @@ else:
 		taxincome = salary - fund - 3500
 		print("taxincome: ",taxincome)
 		if taxincome <= 0:
-			tax = 0
+			tax = 0.00
 			reallysalary = format(salary - fund,".2f")
 		else:
 			tax = taxprint(taxincome)
 			print("tax: ",tax)
 			reallysalary = format(salary - fund - tax,".2f")
 		print(taxlist[0],reallysalary,sep=':')
+		string = str(arg.replace('\n','')) + ',' + str(format(fund,".2f")) + ',' + str(tax) + ',' + str(reallysalary) + '\n'
+		users = []
+		users.append(string)
+		with open(op_file,'a') as file:
+			for data in users:
+				file.write(data)
 
-def taxprint(taxincome):
-	if taxincome <= 0:
-		return format(0,".2f")
-	elif taxincome <= 1500:
-		tax = taxincome * 0.03
-		return tax
-	elif taxincome > 1500 and taxincome <= 4500:
-		tax = taxincome * 0.1 - 105
-		return tax
-	elif taxincome >4500 and taxincome <=9000:
-        	tax = taxincome * 0.2 - 555
-        	return tax
-	elif taxincome > 9000 and taxincome <= 35000:
-        	tax = taxincome * 0.25 - 1005
-        	return tax
-	elif taxincome > 35000 and taxincome <= 55000:
-        	tax = taxincome * 0.3 * 2755
-        	return tax
-	elif taxincome > 55000 and taxincome <= 80000:
-        	tax = taxincome * 0.35 - 5505
-        	return tax
-	elif taxincome > 80000:
-        	tax = taxincome * 0.45 - 13505
-        	return tax
+
+
 
